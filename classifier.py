@@ -26,7 +26,8 @@ class DMM:
         self.__models = [c1_mean, c2_mean, c3_mean]
 
     def __calc_distance(self, data, mean):
-        return euclidean(data, mean)
+        return numpy.sqrt(numpy.sum((data - mean) ** 2))
+        # return euclidean(data, mean)
 
     def __distances(self, models, X):
         for x in X:
@@ -46,7 +47,8 @@ class K1NN:
         self.__models = list(zip(y, X))
 
     def __calc_distance(self, data, mean):
-        return euclidean(data, mean)
+        return numpy.sqrt(numpy.sum((data - mean) ** 2))
+        #return euclidean(data, mean)
 
     def predict(self, X):
         for x in X:
